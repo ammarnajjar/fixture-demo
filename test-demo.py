@@ -17,7 +17,7 @@ def setUp(driver):
     print("\ndeleting Cookies...")
     driver.delete_all_cookies()
     driver.get(
-        "https://entwweb.eventim-inhouse.de/phoenixentw/webticket/shop?mandant=TAU&kassierer=web")
+        "https://github.com/ammarnajjar/fixture-demo")
     driver.get("https://ammarnajjar.github.io/")
 
 
