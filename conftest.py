@@ -9,13 +9,13 @@ DRIVERS_NAMES = ["Chrome", "Firefox"]
 
 @pytest.fixture(scope="session", params=DRIVERS, ids=DRIVERS_NAMES)
 def driver(request):
-    driver = request.param()
-    yield driver
-    tearDown(driver)
+    driver_instance = request.param()
+    yield driver_instance
+    tear_down(driver_instance)
 
 
 @pytest.fixture(scope="function")
-def setUp(driver):
+def set_up(driver):
     print("\ndeleting Cookies...")
     driver.delete_all_cookies()
     driver.get("https://ammarnajjar.github.io/about/")
@@ -24,11 +24,11 @@ def setUp(driver):
     time.sleep(1)
 
 
-def tearDown(driver):
+def tear_down(driver):
     driver.close()
     driver.quit()
 
 
-@pytest.fixture(scope="function", params=[1, 2, 3, 4])
+@pytest.fixture(scope="function", params=["first", "second", "third"])
 def param(request):
     yield request.param
