@@ -1,0 +1,7 @@
+flake8
+autopep8
+selenium
+pytest
+pytest-xdist
+ipytest
+jupyterlab
